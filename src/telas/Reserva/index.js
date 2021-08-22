@@ -1,52 +1,190 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { Text } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import {Text} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
+import {RadioButton, Button} from 'react-native-paper';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Header from '../../components/Header';
 
-import { Container, Header, ViewArea, Block, Button, MessageButtonText, InputArea } from './styles';
+import {
+  Container,
+  View,
+  Div,
+  ViewPicker,
+  ViewModelo,
+  ViewNomeCor,
+  ViewMarcaCapAno,
+  TextView,
+  MessageButtonText,
+  ButtonRegister,
+} from './styles';
 
-export default function Reserva(){
+export default function Reserva() {
+  const [veiculo, setVeiculo] = useState(['Carro 1', 'Carro 2', 'Carro 3']);
+  const [vSelected, setVSelected] = useState([]);
 
-    const [veiculo, setVeiculo] = useState (['Carro 1', 'Carro 2', 'Carro 3'])
-    const [vSelected, setVSelected] = useState([])
+  const [checked, setChecked] = useState('');
 
-    return(
-        <Container>
-            <Header> 
-                <Icon name="car-side" size={50} color="#000000" style={{marginTop: 50}} />
-                <Text style={{fontSize: 40, fontFamily: 'courier new'}}>LOCAR</Text>
-            </Header>
+  const [dateInicio, setDateI] = useState(new Date());
+  const [dateTermino, setDateT] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
 
-            <Text style={{fontSize: 20, fontFamily: 'courier new', marginBottom: 10}}>Faça sua reserva</Text>
+  const onChangeI = (event, selectedDate) => {
+    const currentDate = selectedDate || dateInicio;
+    setShow(Platform.OS === 'ios');
+    setDateI(currentDate);
+  };
 
-            <ViewArea>
-                <Block>
-                    <Picker style={{width: 200, marginRight: 10}}
-                        selectedValue={vSelected}
-                        onValueChange={(itemValue) => setVSelected(itemValue)}
-                    >
-                        {
-                            veiculo.map(v => {
-                                return <Picker.Item label={v} value={v} />
-                            })
-                        }
-                    </Picker>
+  const onChangeT = (event, selectedDate) => {
+    const currentDate = selectedDate || dateTermino;
+    setShow(Platform.OS === 'ios');
+    setDateT(currentDate);
+  };
 
-                    <Text style={{fontSize: 22, fontFamily: 'courier new'}}>R$ {vSelected}</Text>
-                </Block>
+  const showMode = currentMode => {
+    setShow(true);
+    setMode(currentMode);
+  };
 
-                <Text style={{fontSize: 20, fontFamily: 'courier new', marginTop: 20}}>Informações do veículo</Text>
-                
+  return (
+    <Container>
+      <Header placeholder="Faça sua Reserva"/>
 
-                <Button>
-                    <MessageButtonText>Reservar</MessageButtonText>
-                </Button>
+      <View>
+        <Div>
+          <ViewPicker>
+            <Picker
+              style={{width: 200, marginRight: 10}}
+              vSelected={vSelected}
+              onValueChange={itemValue => setVSelected(itemValue)}>
+              {veiculo.map(v => {
+                return <Picker.Item label={v} value={v} />;
+              })}
+            </Picker>
+          </ViewPicker>
 
-            </ViewArea>
-            
+          <Text style={{fontSize: 26, fontFamily: 'courier new'}}>
+            R$100,00
+          </Text>
+        </Div>
 
+        <Div>
+          <Button onPress={event => showMode('dateInicio')}>
+            <Icon
+              name="calendar-alt"
+              size={40}
+              color="#000000"
+              style={{marginTop: 20}}
+            />
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={dateInicio}
+                mode={mode}
+                display="spinner"
+                onChange={onChangeI}
+              />
+            )}
+          </Button>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+              fontFamily: 'courier new',
+            }}>
+            Ínicio
+          </Text>
 
-        </Container>
-    );
+          <Button onPress={event => showMode('dateTermino')}>
+            <Icon
+              name="calendar-alt"
+              size={40}
+              color="#000000"
+              style={{marginTop: 20}}
+            />
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={dateTermino}
+                mode={mode}
+                display="spinner"
+                onChange={onChangeT}
+              />
+            )}
+          </Button>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+              fontFamily: 'courier new',
+            }}>
+            Término
+          </Text>
+        </Div>
+
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+            fontFamily: 'courier new',
+            marginTop: 10,
+          }}>
+          Informações do veículo
+        </Text>
+
+        <Div>
+          <ViewNomeCor>
+            <TextView>Nome</TextView>
+          </ViewNomeCor>
+          <ViewNomeCor>
+            <TextView>Cor</TextView>
+          </ViewNomeCor>
+        </Div>
+
+        <Div>
+          <ViewMarcaCapAno>
+            <TextView>Marca</TextView>
+          </ViewMarcaCapAno>
+          <ViewMarcaCapAno>
+            <TextView>Capacidade</TextView>
+          </ViewMarcaCapAno>
+          <ViewMarcaCapAno>
+            <TextView>Ano</TextView>
+          </ViewMarcaCapAno>
+        </Div>
+
+        <Div>
+          <ViewModelo>
+            <TextView>Modelo</TextView>
+          </ViewModelo>
+        </Div>
+
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 'bold',
+            fontFamily: 'courier new',
+            marginTop: 10,
+          }}>
+          Formas de Pagamento
+        </Text>
+
+        <RadioButton.Group
+          onValueChange={newValue => setChecked(newValue)}
+          value={checked}>
+          <Div>
+            <RadioButton.Item label="Cartão" value="cartao" />
+            <RadioButton.Item label="Dinheiro" value="dinheiro" />
+          </Div>
+        </RadioButton.Group>
+
+        <ButtonRegister>
+          <MessageButtonText>Reservar</MessageButtonText>
+        </ButtonRegister>
+      </View>
+    </Container>
+  );
 }

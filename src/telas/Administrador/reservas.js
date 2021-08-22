@@ -1,19 +1,15 @@
 import React from 'react';
 
-import InfoBox from '../../components/InfoBox';
 import Header from '../../components/Header';
-
+import InfoBox from '../../components/InfoBox';
 import {Container, ScrollView} from './styles';
 
-export default function MinhasReservas() {
+export default function TodasReservas() {
   return (
     <Container>
-      <Header placeholder="Minhas Reservas"/>
-
       <ScrollView>
-        <InfoBox/>
-        <InfoBox/>
-        <InfoBox/>
+        <Header placeholder="Todas as Reservas" />
+        <InfoBox />
       </ScrollView>
     </Container>
   );
