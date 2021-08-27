@@ -5,14 +5,13 @@ import Header from '../../components/Header';
 
 import {Container, ScrollView} from './styles';
 
-export default function Reservas() {
+export default function ReservasPorCliente() {
   return (
     <Container>
       <ScrollView>
-        <Header placeholder="Todas as Reservas" />
-
-        <InfoBox />
-        <InfoBox />
+        <Header placeholder="Reservas de X" />
+        
+        <InfoBox></InfoBox>
       </ScrollView>
     </Container>
   );

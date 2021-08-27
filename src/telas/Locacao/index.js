@@ -21,7 +21,7 @@ import {
   ButtonRegister,
 } from './styles';
 
-export default function Reserva() {
+export default function Locacao() {
   const [veiculo, setVeiculo] = useState(['Carro 1', 'Carro 2', 'Carro 3']);
   const [vSelected, setVSelected] = useState([]);
 

@@ -6,9 +6,13 @@ import styled from 'styled-components/native';
 export const Container = styled.SafeAreaView`
     flex: 1;
     justify-content: center;
-    align-items: center;
     background-color: #aefee4;
 `;
+
+export const Head = styled.SafeAreaView`
+    align-items: center;
+    margin-bottom: 20px;
+`; 
 
 export const InputArea = styled.View`
     flex: 1;

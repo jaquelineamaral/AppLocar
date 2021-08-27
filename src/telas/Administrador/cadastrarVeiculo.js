@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text} from 'react-native';
+
 import Header from '../../components/Header';
 import LoginInput from '../../components/LoginInput';
+
 import {
   Container,
+  ScrollView,
   View,
   Div,
   Button,
   MessageButtonText,
-  ScrollView,
 } from './styles';
 
 export default function CadastroVeiculo() {
+  const [nome, setNome] = useState('');
+  const [marca, setMarca] = useState('');
+  const [ano, setAno] = useState('');
+  const [modelo, setModelo] = useState('');
+  const [cor, setCor] = useState('');
+  const [capacidade, setCapacidade] = useState('');
+  const [placa, setPlaca] = useState('');
+
   return (
     <Container>
       <ScrollView>
@@ -26,21 +36,29 @@ export default function CadastroVeiculo() {
             }}>
             Informações do veículo
           </Text>
-          <LoginInput placeholder="Nome" />
+          <LoginInput placeholder="Nome" setInput={setNome} />
 
           <Div>
-            <LoginInput placeholder="Marca" />
-            <LoginInput placeholder="Ano" />
+            <LoginInput placeholder="Marca" setInput={setMarca} />
+            <LoginInput
+              placeholder="Ano"
+              setInput={setAno}
+              keyboardType={'number-pad'}
+            />
           </Div>
 
           <Div>
-            <LoginInput placeholder="Modelo" />
-            <LoginInput placeholder="Cor" />
+            <LoginInput placeholder="Modelo" setInput={setModelo} />
+            <LoginInput placeholder="Cor" setInput={setCor} />
           </Div>
 
           <Div>
-            <LoginInput placeholder="Capacidade" />
-            <LoginInput placeholder="Placa" />
+            <LoginInput
+              placeholder="Capacidade"
+              setInput={setCapacidade}
+              keyboardType={'number-pad'}
+            />
+            <LoginInput placeholder="Placa" setInput={setPlaca} />
           </Div>
 
           <Button>

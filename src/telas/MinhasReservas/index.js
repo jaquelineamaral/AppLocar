@@ -8,12 +8,11 @@ import {Container, ScrollView} from './styles';
 export default function MinhasReservas() {
   return (
     <Container>
-      <Header placeholder="Minhas Reservas"/>
-
       <ScrollView>
-        <InfoBox/>
-        <InfoBox/>
-        <InfoBox/>
+        <Header placeholder="Minhas Reservas" />
+        <InfoBox />
+        <InfoBox />
+        <InfoBox />
       </ScrollView>
     </Container>
   );
