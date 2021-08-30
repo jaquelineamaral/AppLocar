@@ -18,31 +18,21 @@ const Input = styled.TextInput`
   margin-left: 10px;
 `;
 
-<<<<<<< HEAD
 export default function LoginInput({
   placeholder,
   setInput,
   password,
   keyboardType,
 }) {
-=======
-export default function LoginInput({placeholder, setInput, password, keyboardType}) {
->>>>>>> 150437cc864673b79d675243eb2899c71da92141
   return (
     <InputArea>
       <Input
         placeholder={placeholder}
-<<<<<<< HEAD
         placeholderTextColor={'grey'}
         onChangeText={text => setInput(text)}
         secureTextEntry={password}
         keyboardType={keyboardType}
         style={{}}
-=======
-        onChangeText={text => setInput(text)}
-        secureTextEntry={password}
-        keyboardType={keyboardType}
->>>>>>> 150437cc864673b79d675243eb2899c71da92141
       />
     </InputArea>
   );
