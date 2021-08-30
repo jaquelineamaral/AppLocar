@@ -7,50 +7,38 @@ export const Container = styled.SafeAreaView`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #aefee4;
+    
 `;
 
-export const Texto = styled.Text`
-    width: 142;
-    height: 46;
-    font-size: 40;
-`
-
 export const InputArea = styled.View`
-    flex: 1;
-    display: flex;
     width: 100%;
     padding: 40px;
-    justify-content: center;
-    align-items: center;   
+    
 `;
 
 export const LoginButton = styled.TouchableOpacity`
-    width:50%;
-    height: 40px;
-    background-color: #000000;
-    border-radius: 20px;
+    height: 60px;
+    border-radius: 30px;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
 `;
 
 export const LoginButtonText = styled.Text`
-    font-size: 14px;
+    font-size: 18px;
     color: #FFFFFF;
 `;
 
 export const Button = styled.TouchableOpacity`
-    width: 40%;
-    height: 40px;
-    background-color: #000000;
-    border-radius: 20px;
-    margin-bottom: 50px;
-    margin-top: 10px;
+    width: 80%;
+    height: 60px;
+    border-radius: 30px;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
 `;
 
 export const MessageButtonText = styled.Text`
-    font-size: 14px;
+    font-size: 18px;
     color: #FFFFFF;
 `;

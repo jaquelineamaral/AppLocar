@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "314721039671",
+    "project_id": "applocar-c1521",
+    "storage_bucket": "applocar-c1521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314721039671:android:cbe8f0c74737a2426f16b2",
+        "android_client_info": {
+          "package_name": "com.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314721039671-jvrrs0kv092ik0bjmgmp6r70pflk0q00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDYLWx82eiX2EjJnkJK499ba1VC68E_Vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314721039671-jvrrs0kv092ik0bjmgmp6r70pflk0q00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
